@@ -2,6 +2,7 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import AuthLogo from "../../_components/auth-logo";
 import ForgotPasswordForm from "../../_components/forgot-password-form";
+import Link from "next/link";
 
 const ForgetPasswordPage = () => {
   return (
@@ -18,6 +19,12 @@ const ForgetPasswordPage = () => {
 
         <CardContent>
           <ForgotPasswordForm />
+
+          <div className="mt-4 flex justify-center ">
+          <Link href="/" className="link">
+              Remember your password?
+          </Link>
+          </div>
         </CardContent>
       </Card>
     </div>

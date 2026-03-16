@@ -11,7 +11,7 @@ const LoginPage = () => {
       <AuthLogo />
       <div className=" text-center gap-4 flex flex-col">
         <p className=" text-neutral text-sm">
-          Hi, Welcome back, you’ve been missed
+          Login to Rwanda Pharmaceutical <br /> Pricing Database
         </p>
       </div>
 

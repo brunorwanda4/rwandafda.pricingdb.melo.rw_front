@@ -66,6 +66,7 @@ const LoginForm = () => {
                   aria-invalid={fieldState.invalid}
                   placeholder="Enter your email"
                   disabled={isPending}
+                  type="email"
                 />
               </div>
               {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
