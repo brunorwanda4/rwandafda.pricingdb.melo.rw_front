@@ -20,7 +20,7 @@ interface SearchHistoryItem {
 }
 
 const STORAGE_KEY = "search_history";
-const MAX_HISTORY_ITEMS = 4;
+const MAX_HISTORY_ITEMS = 3;
 
 const DashboardSearch = () => {
   const [searchQuery, setSearchQuery] = useState("");
