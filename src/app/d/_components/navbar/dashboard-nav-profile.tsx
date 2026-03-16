@@ -8,9 +8,14 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
+import { getLoggedInUser, logoutUser } from "@/helpers/get-login-user";
+import { useRouter } from "next/navigation";
+import { formatUserRole, getInitials } from "@/helpers/format-text";
 
 const DashboardNavProfile = () => {
-
+  const user = getLoggedInUser();
+  const router = useRouter();
+  if (!user) return null;
 
   return (
     <Popover>
@@ -18,30 +23,33 @@ const DashboardNavProfile = () => {
         <div className=" flex items-center gap-2 cursor-pointer">
           <Avatar>
             <AvatarImage src="/images/profile.jpg" />
-            <AvatarFallback>PR</AvatarFallback>
+            <AvatarFallback>{getInitials(user?.name)}</AvatarFallback>
           </Avatar>
           <div className="flex flex-col gap-1 ">
-            <span className=" text-sm leading-4">User Name</span>
-            <span className=" text-xs leading-2">user Role</span>
+            <span className=" text-sm leading-4">{user?.name}</span>
+            <span className=" text-xs leading-2">
+              {formatUserRole(user?.role)}
+            </span>
           </div>
-       </div>
+        </div>
       </PopoverTrigger>
       <PopoverContent className="w-80">
         <div className=" flex gap-2">
           <Avatar size="lg">
             <AvatarImage src="/images/profile.jpg" />
-            <AvatarFallback>PR</AvatarFallback>
+            <AvatarFallback>{getInitials(user?.name)}</AvatarFallback>
           </Avatar>
           <div className=" flex flex-col">
-            <span>User Name</span>
-            <span>user Role</span>
+            <span>{user?.name}</span>
+            <span>{formatUserRole(user?.role)}</span>
           </div>
         </div>
+
         <Separator />
         <Button
           variant={"ghost"}
           className=" justify-start cursor-pointer rounded-md"
-          onClick={() => {}}
+          onClick={() => logoutUser(router)}
         >
           <SlLogout />
           <span>Logout</span>

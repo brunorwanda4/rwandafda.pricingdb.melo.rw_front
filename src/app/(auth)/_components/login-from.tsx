@@ -2,7 +2,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import {  useState, useTransition } from "react";
+import { useState, useTransition } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { AiOutlineMail } from "react-icons/ai";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
@@ -17,14 +17,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { type LoginType, loginSchema } from "../_schema/login-schema";
 import AuthLoadingIcon from "./auth-loading-icon";
+import { usersExamples } from "@/consts/user-role";
 
 const LoginForm = () => {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
-
-
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const form = useForm<LoginType>({
@@ -39,7 +38,15 @@ const LoginForm = () => {
     setError(null);
     setSuccess(null);
     startTransition(() => {
-        // Simulate an API call
+      const user = usersExamples.find(
+        (u) => u.email === data.email && u.password === data.password,
+      );
+      if (user) {
+        localStorage.setItem("login_user_data", JSON.stringify(user));
+        router.push("/d");
+      } else {
+        setError("Invalid email or password");
+      }
     });
   };
 

@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
 import { dashboardSidebarContentGroups } from "./dashboard-sidebar-content";
+import { logoutUser } from "@/helpers/get-login-user";
 
 export function DashboardSidebar() {
   const router = useRouter();
@@ -54,14 +55,14 @@ export function DashboardSidebar() {
                       " text-neutral",
                       buttonVariants({
                         variant: pathname === item.url ? "default" : "ghost",
-                        size:  "default",
+                        size: "default",
                         className:
                           !open &&
                           pathname === item.url &&
                           "text-primary bg-base-100 hover:text-primary-content",
                       }),
                       " justify-start  cursor-pointer rounded-sm",
-                      !open && "rounded-full "
+                      !open && "rounded-full ",
                     )}
                   >
                     <item.icon size={24} className="size-5" />
@@ -73,9 +74,9 @@ export function DashboardSidebar() {
           </SidebarGroup>
         ))}
       </SidebarContent>
-      <SidebarFooter className="bg-base-100">
+      <SidebarFooter className="bg-base-100 pb-10">
         <Button
-          onClick={() => router.push("/auth/login")}
+          onClick={() => logoutUser(router)}
           variant={"ghost"}
           className=" justify-start cursor-pointer"
         >
