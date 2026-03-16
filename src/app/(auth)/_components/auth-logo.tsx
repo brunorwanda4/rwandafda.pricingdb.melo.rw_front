@@ -7,15 +7,15 @@ interface AuthLogoProps {
 
 const AuthLogo = ({ className }: AuthLogoProps) => {
   return (
-    <div className={cn("flex items-center gap-2", className)}>
+    <div className={cn("flex items-center flex-col", className)}>
       <Image
         priority
         src="/logo.svg"
         alt="Tega Logo"
-        width={30}
-        height={30}
+        width={100}
+        height={100}
       />
-      <h1 className=" font-cal-sans text-3xl">Tega</h1>
+      <h1 className=" text-3xl font-semibold text-primary">Rwanda FDA</h1>
     </div>
   );
 };

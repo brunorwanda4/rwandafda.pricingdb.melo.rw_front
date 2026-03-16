@@ -2,7 +2,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState, useTransition } from "react";
+import {  useState, useTransition } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { AiOutlineMail } from "react-icons/ai";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
@@ -15,27 +15,16 @@ import {
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import AuthLoadingIcon from "../../_components/auth-loading-icon";
-import type { RegisterType } from "../../register/_schema/register-schema";
 import { type LoginType, loginSchema } from "../_schema/login-schema";
+import AuthLoadingIcon from "./auth-loading-icon";
 
 const LoginForm = () => {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
-  const [email, setEmail] = useState<string | null>(null);
-  const [password, setPassword] = useState<string | null>(null);
   const router = useRouter();
 
-  useEffect(() => {
-    const storedData = localStorage.getItem("tega_register_data");
 
-    if (storedData) {
-      const parsedData = JSON.parse(storedData) as RegisterType;
-      setEmail(parsedData.email);
-      setPassword(parsedData.password);
-    }
-  }, []);
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const form = useForm<LoginType>({
@@ -50,20 +39,14 @@ const LoginForm = () => {
     setError(null);
     setSuccess(null);
     startTransition(() => {
-      if (email && password) {
-        if (email === data.email && password === data.password) {
-          router.push("/app/bookings");
-        } else {
-          setError("Invalid email or password");
-        }
-      }
+        // Simulate an API call
     });
   };
 
   return (
     <form
       id="login-form"
-      className="w-full "
+      className=" w-full max-w-sm "
       onSubmit={form.handleSubmit(onSubmit)}
     >
       <FieldGroup>
