@@ -4,16 +4,14 @@ import { DashboardSidebar } from "./_components/sidebar/dashboard-sidebar";
 
 const DashboardLayout = (props: LayoutProps<"/d">) => {
   return (
-   <SidebarProvider>
+    <SidebarProvider>
       <DashboardSidebar />
       <main className="bg-base-200 w-full relative">
         <DashboardNavbar />
-        <div className=" pt-20 px-8">
-           {props.children}
-       </div>
+        <div className=" py-20 px-8">{props.children}</div>
       </main>
     </SidebarProvider>
-  )
-}
+  );
+};
 
-export default DashboardLayout
+export default DashboardLayout;
