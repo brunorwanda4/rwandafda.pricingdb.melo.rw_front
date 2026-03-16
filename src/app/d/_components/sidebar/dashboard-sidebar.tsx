@@ -32,7 +32,7 @@ export function DashboardSidebar() {
       collapsible="icon"
       className={cn(" bg-base-100 px-4", { "px-0": !open })}
     >
-      <SidebarHeader className=" bg-base-100 flex flex-row justify-between items-center">
+      <SidebarHeader className=" bg-base-100 flex flex-row justify-between items-center pt-4">
         {open && (
           <Link href="/d" className=" flex gap-2 items-center">
             <Image src={"/logo.svg"} alt="Logo" height={36} width={36} />

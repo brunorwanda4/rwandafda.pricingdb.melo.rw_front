@@ -15,10 +15,16 @@ const DashboardNavProfile = () => {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Avatar>
-          <AvatarImage src="/images/profile.jpg" />
-          <AvatarFallback>PR</AvatarFallback>
-        </Avatar>
+        <div className=" flex items-center gap-2 cursor-pointer">
+          <Avatar>
+            <AvatarImage src="/images/profile.jpg" />
+            <AvatarFallback>PR</AvatarFallback>
+          </Avatar>
+          <div className="flex flex-col gap-1 ">
+            <span className=" text-sm leading-4">User Name</span>
+            <span className=" text-xs leading-2">user Role</span>
+          </div>
+       </div>
       </PopoverTrigger>
       <PopoverContent className="w-80">
         <div className=" flex gap-2">
@@ -27,8 +33,8 @@ const DashboardNavProfile = () => {
             <AvatarFallback>PR</AvatarFallback>
           </Avatar>
           <div className=" flex flex-col">
-            <span>Name</span>
-            <span>Role</span>
+            <span>User Name</span>
+            <span>user Role</span>
           </div>
         </div>
         <Separator />

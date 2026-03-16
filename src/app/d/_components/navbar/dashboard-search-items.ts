@@ -9,39 +9,33 @@ export interface dashboardSearchItemType {
 
 export const dashboardSearchItems = [
   {
-    label: "Dashboard",
-    href: "/d",
-    description: "Main dashboard overview",
-    category: "Dashboard",
-  },
-  {
-    label: "Clients",
-    href: "/d/clients",
-    description: "Manage your clients",
-    category: "Dashboard",
-  },
-  {
-    label: "Client Tracking",
-    href: "/d/client-tracking",
-    description: "Track client activity and progress",
-    category: "Dashboard",
-  },
-  {
-    label: "Drivers",
-    href: "/d/drivers",
-    description: "Manage drivers",
-    category: "Dashboard",
-  },
-  {
-    label: "Payments",
-    href: "/d/payments",
-    description: "View and manage payments",
-    category: "Dashboard",
-  },
-  {
-    label: "Communications",
-    href: "/d/communications",
-    description: "Messages and communications",
-    category: "Dashboard",
-  },
+      label: "Dashboard",
+      href: "/d",
+      description: "Overview of key metrics and system activity",
+      category: "Dashboard",
+    },
+    {
+      label: "Import",
+      href: "/d/import",
+      description: "Upload and manage food & drug import submissions",
+      category: "Dashboard",
+    },
+    {
+      label: "Mark-up Approval",
+      href: "/d/mark-up-approval",
+      description: "Review and approve product mark-up requests",
+      category: "Dashboard",
+    },
+    {
+      label: "Report & Analytics",
+      href: "/d/report-analytics",
+      description: "View detailed reports and analytical insights",
+      category: "Dashboard",
+    },
+    {
+      label: "Settings",
+      href: "/d/settings",
+      description: "Configure system preferences and account settings",
+      category: "Dashboard",
+    },
 ];
