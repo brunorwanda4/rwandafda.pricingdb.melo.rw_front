@@ -108,7 +108,7 @@ const LoginForm = () => {
         />
 
         <div className=" flex justify-end">
-          <Link href="/auth/forgot-password" className=" link">
+          <Link href="/auth/forget-password" className=" link">
             Forgot password?
           </Link>
         </div>
