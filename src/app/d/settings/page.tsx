@@ -1,19 +1,34 @@
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import UpdateUserForm from "../_components/settings/UpdateUserForm";
+import { ButtonGroup } from "@/components/ui/button-group";
+import { Button } from "@/components/ui/button";
+import { BsPerson, BsShield } from "react-icons/bs";
+
 export default function SettingsPage() {
   return (
-    <div className="flex-1 space-y-4 p-8 pt-6">
-      <div className="flex items-center justify-between space-y-2">
-        <h2 className="text-3xl font-bold tracking-tight">Settings</h2>
-      </div>
-      <div className="grid gap-4">
-        <div className="rounded-xl border bg-card text-card-foreground shadow">
-          <div className="p-6">
-            <h3 className="text-lg font-medium">Application Settings</h3>
-            <p className="text-sm text-muted-foreground">
-              Manage your account and system preferences.
-            </p>
-          </div>
-        </div>
-      </div>
+    <div className="space-y-8">
+      <Tabs defaultValue="profile" className=" space-y-8">
+        <TabsList>
+          <TabsTrigger
+            value="profile"
+            className="rounded-l-md rounded-r-none px-4 py-4 border-base-300"
+          >
+            <BsPerson />
+            <span>Profile</span>
+          </TabsTrigger>
+          <TabsTrigger
+            value="security"
+            className="rounded-r-md rounded-l-none px-4 py-4 border border-base-300 "
+          >
+            <BsShield />
+            <span>Security</span>
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="profile">
+          <UpdateUserForm />
+        </TabsContent>
+        <TabsContent value="security"></TabsContent>
+      </Tabs>
     </div>
   );
 }
