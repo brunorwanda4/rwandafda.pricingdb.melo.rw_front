@@ -58,14 +58,6 @@ export default function PriceBenchmarkTable() {
     );
   }, [search]);
 
-  // const SIDEBAR_COOKIE_NAME = "sidebar_state"
-  // const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
-  // const SIDEBAR_WIDTH = "16rem"
-  // const SIDEBAR_WIDTH_MOBILE = "18rem"
-  // const SIDEBAR_WIDTH_ICON = "4rem"
-  // const SIDEBAR_KEYBOARD_SHORTCUT = "b"
-
-  // this can help to see if is open
   const { open } = useSidebar();
 
   return (
@@ -97,11 +89,11 @@ export default function PriceBenchmarkTable() {
         {/* 3. THE RESPONSIVE TABLE ENGINE */}
         {/*Can you help me to make condition which make 100vw - sidebar width */}
         <div
-          className="relative overflow-x-auto"
+          className="relative overflow-x-auto lg:[width:var(--w)]"
           style={{
-            width: open
-              ? "calc(100vw - 22rem - 48px)" // sidebar open (16rem) + padding
-              : "calc(100vw - 10rem - 48px)", // sidebar collapsed (icon only = 4rem)
+            "--w": open
+              ? "calc(100vw - 22rem - 48px)"
+              : "calc(100vw - 10rem - 48px)",
           }}
         >
           <Table className="w-full border-collapse table-fixed md:table-auto">
