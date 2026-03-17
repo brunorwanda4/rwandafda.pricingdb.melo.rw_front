@@ -58,8 +58,7 @@ const CreateApiKeyDialog = () => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button>
-          <BsPlus />
+        <Button preset="create">
           <span> Create New API Key</span>
         </Button>
       </DialogTrigger>

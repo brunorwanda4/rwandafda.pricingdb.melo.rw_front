@@ -1,11 +1,17 @@
 import type * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { Slot } from "radix-ui";
-
 import { cn } from "@/lib/utils";
+import {
+  HiOutlinePlus,
+  HiOutlinePencil,
+  HiOutlineTrash,
+  HiOutlineCheck,
+  HiOutlineX,
+} from "react-icons/hi";
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center  cursor-pointer rounded-md border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 active:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
+  "group/button inline-flex shrink-0 items-center justify-center cursor-pointer rounded-md border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 active:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
   {
     variants: {
       variant: {
@@ -39,27 +45,90 @@ const buttonVariants = cva(
   },
 );
 
+// Preset intents: icon + default variant bundled together
+const BUTTON_PRESETS = {
+  create: {
+    icon: HiOutlinePlus,
+    variant: "default",
+  },
+  update: {
+    icon: HiOutlinePencil,
+    variant: "outline",
+  },
+  delete: {
+    icon: HiOutlineTrash,
+    variant: "destructive",
+  },
+  save: {
+    icon: HiOutlineCheck,
+    variant: "default",
+  },
+  cancel: {
+    icon: HiOutlineX,
+    variant: "ghost",
+  },
+} as const;
+
+type PresetKey = keyof typeof BUTTON_PRESETS;
+type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>;
+
 function Button({
   className,
-  variant = "default",
+  variant,
   size = "default",
   asChild = false,
+  preset,
+  icon: IconProp,
+  iconPosition = "start",
+  children,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
+    /**
+     * Preset bundles an icon + variant together.
+     * e.g. preset="create" → Plus icon + default variant
+     *      preset="delete" → Trash icon + destructive variant
+     *      preset="update" → Pencil icon + outline variant
+     */
+    preset?: PresetKey;
+    /** Override or add a custom icon on top of preset */
+    icon?: IconComponent;
+    iconPosition?: "start" | "end";
   }) {
   const Comp = asChild ? Slot.Root : "button";
+
+  // Resolve preset values
+  const resolvedPreset = preset ? BUTTON_PRESETS[preset] : null;
+  const resolvedVariant = variant ?? resolvedPreset?.variant ?? "default";
+  const resolvedIcon: IconComponent | undefined =
+    IconProp ?? resolvedPreset?.icon;
+
+  const ResolvedIcon = resolvedIcon;
+  const iconNode = ResolvedIcon ? <ResolvedIcon /> : null;
 
   return (
     <Comp
       data-slot="button"
-      data-variant={variant}
+      data-variant={resolvedVariant}
       data-size={size}
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(
+        buttonVariants({
+          variant: resolvedVariant as VariantProps<
+            typeof buttonVariants
+          >["variant"],
+          size,
+          className,
+        }),
+      )}
       {...props}
-    />
+    >
+      {iconNode && iconPosition === "start" && iconNode}
+      {children}
+      {iconNode && iconPosition === "end" && iconNode}
+    </Comp>
   );
 }
 
 export { Button, buttonVariants };
+export type { PresetKey };

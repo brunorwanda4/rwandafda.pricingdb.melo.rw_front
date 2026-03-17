@@ -1,5 +1,7 @@
+import { Button } from "@/components/ui/button";
 import ApiMetricsOverview from "../_components/api-keys/api-metrics-overview";
 import DashboardTitle from "../_components/common/dashboard-title";
+import CreateUserRoleDialog from "../_components/system-roles/CreateUserRoleDialog";
 import UserRoleManager from "../_components/system-roles/UserRoleManager";
 
 const SystemRolesPage = () => {
@@ -10,6 +12,7 @@ const SystemRolesPage = () => {
           desc="System Role Management"
           title="Configure user roles and permissions levels"
         />
+        <CreateUserRoleDialog />
       </div>
       <ApiMetricsOverview />
       <UserRoleManager />
