@@ -21,15 +21,22 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
-import { DIVISION_MANAGER_dashboardSidebarContentGroups } from "./dashboard-sidebar-content";
-import { logoutUser } from "@/helpers/get-login-user";
+import {
+  DIVISION_MANAGER_dashboardSidebarContentGroups,
+  SUPER_ADMIN_dashboardSidebarContentGroups,
+} from "./dashboard-sidebar-content";
+import { getLoggedInUser, logoutUser } from "@/helpers/get-login-user";
 
 export function DashboardSidebar() {
   const router = useRouter();
   const pathname = usePathname();
   const { open } = useSidebar();
+  const user = getLoggedInUser();
 
-  const sidebarContent = DIVISION_MANAGER_dashboardSidebarContentGroups;
+  const sidebarContent =
+    user?.role === "SUPER_ADMIN"
+      ? SUPER_ADMIN_dashboardSidebarContentGroups
+      : DIVISION_MANAGER_dashboardSidebarContentGroups;
 
   return (
     <Sidebar
