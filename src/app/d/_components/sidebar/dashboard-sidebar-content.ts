@@ -157,3 +157,27 @@ export const MARKET_SUPPORT_dashboardSidebarContentGroups: sidebarGroupsProps[] 
       ],
     },
   ];
+
+export const STAKEHOLDERS_dashboardSidebarContentGroups: sidebarGroupsProps[] =
+  [
+    {
+      label: "Dashboard",
+      items: [
+        {
+          title: "Dashboard",
+          icon: CiGrid42,
+          url: "/d",
+        },
+        {
+          title: "Report & Analytics",
+          icon: TbReportAnalytics,
+          url: "/d/report-analytics",
+        },
+        {
+          title: "Settings",
+          icon: IoSettingsOutline,
+          url: "/d/settings",
+        },
+      ],
+    },
+  ];

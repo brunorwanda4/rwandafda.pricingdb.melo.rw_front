@@ -21,6 +21,7 @@ import {
   DIVISION_MANAGER_dashboardSidebarContentGroups,
   MARKET_SUPPORT_dashboardSidebarContentGroups,
   PHARMACEUTIC_SUPPLY_dashboardSidebarContentGroups,
+  STAKEHOLDERS_dashboardSidebarContentGroups,
   SUPER_ADMIN_dashboardSidebarContentGroups,
 } from "./dashboard-sidebar-content";
 import { getLoggedInUser, logoutUser } from "@/helpers/get-login-user";
@@ -40,7 +41,7 @@ export function DashboardSidebar() {
           ? PHARMACEUTIC_SUPPLY_dashboardSidebarContentGroups
           : user?.role === "MARKET_SUPPORT"
             ? MARKET_SUPPORT_dashboardSidebarContentGroups
-            : [];
+            : STAKEHOLDERS_dashboardSidebarContentGroups;
 
   return (
     <Sidebar
