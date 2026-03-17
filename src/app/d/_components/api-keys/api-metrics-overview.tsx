@@ -46,7 +46,7 @@ const ApiMetricsOverview = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 w-full">
       {apiData.map((item, index) => {
         const config =
           API_METRIC_CONFIG[item.type as keyof typeof API_METRIC_CONFIG];
