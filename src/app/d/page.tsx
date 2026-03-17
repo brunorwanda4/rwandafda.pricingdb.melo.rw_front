@@ -8,6 +8,7 @@ import { getLoggedInUser } from "@/helpers/get-login-user";
 import DataOverview from "./_components/dashboard/data-overview";
 import SystemResources from "./_components/dashboard/system-resources";
 import { SystemActivityChart } from "./_components/dashboard/system-activity-chart";
+import SystemEvents from "./_components/dashboard/system-events";
 
 const DashboardPage = () => {
   const user = getLoggedInUser();
@@ -29,6 +30,7 @@ const DashboardPage = () => {
             <SystemResources />
             <SystemActivityChart />
           </div>
+          <SystemEvents />
         </div>
       );
     case "DIVISION_MANAGER":
