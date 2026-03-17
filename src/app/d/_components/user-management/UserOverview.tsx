@@ -76,7 +76,7 @@ const RECENT_EVENTS = [
 
 const UserOverview = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
       {USER_STATS.map((stat) => (
         <Card key={stat.label} className="border-slate-200">
           <CardContent className=" flex items-center gap-4">
