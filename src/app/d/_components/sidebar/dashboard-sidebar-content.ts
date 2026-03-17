@@ -1,6 +1,6 @@
 import type { IconType } from "react-icons";
 import { CiGrid42 } from "react-icons/ci";
-import { MdOutlineApproval } from "react-icons/md";
+import { FaArrowTrendUp } from "react-icons/fa6";
 import { HiOutlineDocumentArrowUp } from "react-icons/hi2";
 import { TbReportAnalytics } from "react-icons/tb";
 import { IoSettingsOutline } from "react-icons/io5";
@@ -114,6 +114,40 @@ export const PHARMACEUTIC_SUPPLY_dashboardSidebarContentGroups: sidebarGroupsPro
           title: "Benchmark Price List",
           icon: LuClipboardList,
           url: "/d/benchmark-price-list",
+        },
+        {
+          title: "Settings",
+          icon: IoSettingsOutline,
+          url: "/d/settings",
+        },
+      ],
+    },
+  ];
+
+export const MARKET_SUPPORT_dashboardSidebarContentGroups: sidebarGroupsProps[] =
+  [
+    {
+      label: "Dashboard",
+      items: [
+        {
+          title: "Dashboard",
+          icon: CiGrid42,
+          url: "/d",
+        },
+        {
+          title: "Import",
+          icon: HiOutlineDocumentArrowUp,
+          url: "/d/import",
+        },
+        {
+          title: "Benchmark Price List",
+          icon: LuClipboardList,
+          url: "/d/benchmark-price-list",
+        },
+        {
+          title: "Mark-up configuration",
+          icon: FaArrowTrendUp,
+          url: "/d/mark-up-configuration",
         },
         {
           title: "Settings",

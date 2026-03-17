@@ -280,7 +280,9 @@ const PricingAnalysisDashboard = () => {
               Mark-up updated to reflect current inflation rates and maintain
               alignment with market economic conditions.
             </p>
-            <button className="link link-hover link-info">Read More...</button>
+            <button type="button" className="link link-hover link-info">
+              Read More...
+            </button>
           </div>
 
           <div className="p-4 border border-slate-100 rounded-xl bg-slate-50/30">

@@ -19,6 +19,7 @@ import {
 import { cn } from "@/lib/utils";
 import {
   DIVISION_MANAGER_dashboardSidebarContentGroups,
+  MARKET_SUPPORT_dashboardSidebarContentGroups,
   PHARMACEUTIC_SUPPLY_dashboardSidebarContentGroups,
   SUPER_ADMIN_dashboardSidebarContentGroups,
 } from "./dashboard-sidebar-content";
@@ -37,7 +38,9 @@ export function DashboardSidebar() {
         ? DIVISION_MANAGER_dashboardSidebarContentGroups
         : user?.role === "PHARMACEUTIC_SUPPLY"
           ? PHARMACEUTIC_SUPPLY_dashboardSidebarContentGroups
-          : [];
+          : user?.role === "MARKET_SUPPORT"
+            ? MARKET_SUPPORT_dashboardSidebarContentGroups
+            : [];
 
   return (
     <Sidebar
