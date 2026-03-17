@@ -1,11 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  usePathname,
-  useRouter,
-  useSelectedLayoutSegment,
-} from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { SlLogout } from "react-icons/sl";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
@@ -23,6 +19,8 @@ import {
 import { cn } from "@/lib/utils";
 import {
   DIVISION_MANAGER_dashboardSidebarContentGroups,
+  MARKET_SUPPORT_dashboardSidebarContentGroups,
+  PHARMACEUTIC_SUPPLY_dashboardSidebarContentGroups,
   SUPER_ADMIN_dashboardSidebarContentGroups,
 } from "./dashboard-sidebar-content";
 import { getLoggedInUser, logoutUser } from "@/helpers/get-login-user";
@@ -36,12 +34,18 @@ export function DashboardSidebar() {
   const sidebarContent =
     user?.role === "SUPER_ADMIN"
       ? SUPER_ADMIN_dashboardSidebarContentGroups
-      : DIVISION_MANAGER_dashboardSidebarContentGroups;
+      : user?.role === "DIVISION_MANAGER"
+        ? DIVISION_MANAGER_dashboardSidebarContentGroups
+        : user?.role === "PHARMACEUTIC_SUPPLY"
+          ? PHARMACEUTIC_SUPPLY_dashboardSidebarContentGroups
+          : user?.role === "MARKET_SUPPORT"
+            ? MARKET_SUPPORT_dashboardSidebarContentGroups
+            : [];
 
   return (
     <Sidebar
       collapsible="icon"
-      className={cn(" bg-base-100 px-4", { "px-0": !open })}
+      className={cn(" bg-base-100 px-4 z-40", { "px-0": !open })}
     >
       <SidebarHeader className=" bg-base-100 flex flex-row justify-between items-center pt-4">
         {open && (

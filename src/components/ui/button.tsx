@@ -8,6 +8,8 @@ import {
   HiOutlineTrash,
   HiOutlineCheck,
   HiOutlineX,
+  HiOutlineUpload,
+  HiOutlineSave,
 } from "react-icons/hi";
 
 const buttonVariants = cva(
@@ -61,8 +63,12 @@ const BUTTON_PRESETS = {
     variant: "destructive",
   },
   save: {
-    icon: HiOutlineCheck,
+    icon: HiOutlineSave,
     variant: "default",
+  },
+  upload: {
+    icon: HiOutlineUpload,
+    variant: "secondary",
   },
   cancel: {
     icon: HiOutlineX,

@@ -161,7 +161,10 @@ const ProductLandingCostTable = () => {
                   {product.landingCost}
                 </TableCell>
                 <TableCell className="text-right">
-                  <button className="text-[#00897B] font-bold hover:underline">
+                  <button
+                    type="button"
+                    className="text-[#00897B] font-bold hover:underline"
+                  >
                     View
                   </button>
                 </TableCell>
