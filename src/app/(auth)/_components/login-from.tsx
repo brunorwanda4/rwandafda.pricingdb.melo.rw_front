@@ -17,7 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { type LoginType, loginSchema } from "../_schema/login-schema";
 import AuthLoadingIcon from "./auth-loading-icon";
-import { usersExamples } from "@/consts/user-role";
+import { usersExamples } from "@/consts/user-example";
 
 const LoginForm = () => {
   const [error, setError] = useState<string | null>(null);

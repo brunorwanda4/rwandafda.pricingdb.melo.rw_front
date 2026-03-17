@@ -1,12 +1,14 @@
 interface DashboardTitleProps {
   title: string;
+  desc?: string;
 }
 
-const DashboardTitle = ({ title }: DashboardTitleProps) => {
+const DashboardTitle = ({ title, desc }: DashboardTitleProps) => {
   return (
-    <h2 className="text-xl font-semibold">
-      {title}
-    </h2>
+    <div className=" flex flex-col gap-2">
+      <h2 className="text-xl font-semibold">{title}</h2>
+      {desc && <p className="text-sm text-gray-600">{desc}</p>}
+    </div>
   );
 };
 

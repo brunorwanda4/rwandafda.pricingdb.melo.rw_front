@@ -18,35 +18,36 @@ export type sidebarGroupsProps = {
   index?: number;
 };
 
-export const dashboardSidebarContentGroups: sidebarGroupsProps[] = [
-  {
-    label: "Dashboard",
-    items: [
-      {
-        title: "Dashboard",
-        icon: CiGrid42,
-        url: "/d",
-      },
-      {
-        title: "Import",
-        icon: HiOutlineDocumentArrowUp,
-        url: "/d/import",
-      },
-      {
-        title: "Mark-up Approval",
-        icon: MdOutlineApproval,
-        url: "/d/mark-up-approval",
-      },
-      {
-        title: "Report & Analytics",
-        icon: TbReportAnalytics,
-        url: "/d/report-analytics",
-      },
-      {
-        title: "Settings",
-        icon: IoSettingsOutline,
-        url: "/d/settings",
-      },
-    ],
-  },
-];
+export const DIVISION_MANAGER_dashboardSidebarContentGroups: sidebarGroupsProps[] =
+  [
+    {
+      label: "Dashboard",
+      items: [
+        {
+          title: "Dashboard",
+          icon: CiGrid42,
+          url: "/d",
+        },
+        {
+          title: "Import",
+          icon: HiOutlineDocumentArrowUp,
+          url: "/d/import",
+        },
+        {
+          title: "Mark-up Approval",
+          icon: MdOutlineApproval,
+          url: "/d/mark-up-approval",
+        },
+        {
+          title: "Report & Analytics",
+          icon: TbReportAnalytics,
+          url: "/d/report-analytics",
+        },
+        {
+          title: "Settings",
+          icon: IoSettingsOutline,
+          url: "/d/settings",
+        },
+      ],
+    },
+  ];

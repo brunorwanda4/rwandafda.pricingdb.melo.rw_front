@@ -21,13 +21,16 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
-import { dashboardSidebarContentGroups } from "./dashboard-sidebar-content";
+import { DIVISION_MANAGER_dashboardSidebarContentGroups } from "./dashboard-sidebar-content";
 import { logoutUser } from "@/helpers/get-login-user";
 
 export function DashboardSidebar() {
   const router = useRouter();
   const pathname = usePathname();
   const { open } = useSidebar();
+
+  const sidebarContent = DIVISION_MANAGER_dashboardSidebarContentGroups;
+
   return (
     <Sidebar
       collapsible="icon"
@@ -43,7 +46,7 @@ export function DashboardSidebar() {
         <SidebarTrigger className=" cursor-pointer" />
       </SidebarHeader>
       <SidebarContent className="bg-base-100 pt-6">
-        {dashboardSidebarContentGroups.map((group) => (
+        {sidebarContent.map((group) => (
           <SidebarGroup key={group.index ?? group.label}>
             <SidebarGroupContent>
               <SidebarMenu className=" flex flex-col gap-2">
