@@ -1,3 +1,4 @@
+import ApiDocumentation from "../_components/api-keys/api-documentation";
 import ApiKeyManager from "../_components/api-keys/api-key-manager";
 import ApiMetricsOverview from "../_components/api-keys/api-metrics-overview";
 import CreateApiKeyDialog from "../_components/api-keys/create-api-key-dialog";
@@ -15,6 +16,7 @@ const ApiKeysPage = () => {
       </div>
       <ApiMetricsOverview />
       <ApiKeyManager />
+      <ApiDocumentation />
     </div>
   );
 };
