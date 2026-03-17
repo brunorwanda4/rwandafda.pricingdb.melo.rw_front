@@ -22,6 +22,7 @@ import {
   CardHeader,
 } from "@/components/ui/card";
 import { FiSave } from "react-icons/fi";
+import UpdateMarkupDialog from "./UpdateMarkupDialog";
 
 export default function MarkupConfiguration() {
   // State for the mark-up values
@@ -58,10 +59,7 @@ export default function MarkupConfiguration() {
           </Select>
         </div>
 
-        <Button variant="default" size="lg">
-          <HiOutlinePlus className="w-5 h-5" />
-          Add New Reason
-        </Button>
+        <UpdateMarkupDialog />
       </div>
 
       {/* 2. MAIN CONFIGURATION CARD */}
