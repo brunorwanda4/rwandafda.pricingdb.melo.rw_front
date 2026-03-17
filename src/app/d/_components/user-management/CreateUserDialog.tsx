@@ -68,9 +68,7 @@ const CreateUserDialog = () => {
         <div className="grid gap-5 py-4">
           {/* Full Name */}
           <div className="grid gap-2">
-            <Label htmlFor="name" className="font-bold text-slate-700">
-              Full Name
-            </Label>
+            <Label htmlFor="name">Full Name</Label>
             <Input
               id="name"
               placeholder="e.g. Dr. Jean Mutabazi"
@@ -84,9 +82,7 @@ const CreateUserDialog = () => {
           <div className="grid grid-cols-2 gap-4">
             {/* Email Address */}
             <div className="grid gap-2">
-              <Label htmlFor="email" className="font-bold text-slate-700">
-                Email Address
-              </Label>
+              <Label htmlFor="email">Email Address</Label>
               <Input
                 id="email"
                 type="email"
@@ -99,9 +95,7 @@ const CreateUserDialog = () => {
             </div>
             {/* Employee ID */}
             <div className="grid gap-2">
-              <Label htmlFor="employeeId" className="font-bold text-slate-700">
-                Employee ID
-              </Label>
+              <Label htmlFor="employeeId">Employee ID</Label>
               <Input
                 id="employeeId"
                 placeholder="FDA-2026-XXXX"
@@ -115,9 +109,7 @@ const CreateUserDialog = () => {
 
           {/* Department Selection */}
           <div className="grid gap-2">
-            <Label htmlFor="department" className="font-bold text-slate-700">
-              Department
-            </Label>
+            <Label htmlFor="department">Department</Label>
             <Select
               onValueChange={(value) =>
                 setFormData({ ...formData, department: value })
@@ -141,9 +133,7 @@ const CreateUserDialog = () => {
 
           {/* Role Selection */}
           <div className="grid gap-2">
-            <Label htmlFor="role" className="font-bold text-slate-700">
-              System Role
-            </Label>
+            <Label htmlFor="role">System Role</Label>
             <Select
               onValueChange={(value) =>
                 setFormData({ ...formData, role: value })

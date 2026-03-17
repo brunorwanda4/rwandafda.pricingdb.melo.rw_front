@@ -1,14 +1,51 @@
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import DashboardTitle from "../_components/common/dashboard-title";
+import PricingAnalysisDashboard from "../_components/report-analytics/PricingAnalysisDashboard";
+import { Button } from "@/components/ui/button";
+import { LuDownload } from "react-icons/lu";
+import SystemAuditLog from "../_components/report-analytics/SystemAuditLog";
+
 export default function ReportAnalyticsPage() {
   return (
-    <div className="flex-1 space-y-4 p-8 pt-6">
-      <div className="flex items-center justify-between space-y-2">
-        <h2 className="text-3xl font-bold tracking-tight">Report & Analytics</h2>
+    <div className=" space-y-8">
+      <div className=" flex justify-between items-center">
+        <DashboardTitle
+          title="Advanced Analytics"
+          desc="Comprehensive pricing analysis, policy enforcement
+        tracking, and strategic market intelligence"
+        />
+        <div className=" flex gap-2 items-center">
+          <Select>
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Last 6 months" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem
+                key="last-6-months"
+                value="last-6-months"
+                className=""
+              >
+                Last 6 months
+              </SelectItem>
+              <SelectItem key="last-year" value="last-year" className="">
+                Last year
+              </SelectItem>
+            </SelectContent>
+          </Select>
+          <Button type="button" size={"lg"}>
+            <LuDownload />
+            <span>Export</span>
+          </Button>
+        </div>
       </div>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <p className="text-muted-foreground">
-          View and analyze your pricing reports and market trends.
-        </p>
-      </div>
+      <PricingAnalysisDashboard />
+      <SystemAuditLog />
     </div>
   );
 }

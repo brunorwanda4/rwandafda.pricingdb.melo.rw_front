@@ -8,7 +8,7 @@ interface DashboardTitleProps {
 
 const DashboardTitle = ({ title, desc, className }: DashboardTitleProps) => {
   return (
-    <div className={cn(" flex flex-col gap-2", className)}>
+    <div className={cn(" flex flex-col gap-2 max-w-md", className)}>
       <h2 className="text-xl font-semibold">{title}</h2>
       {desc && <p className="text-sm text-gray-600">{desc}</p>}
     </div>
