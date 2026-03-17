@@ -14,7 +14,7 @@ import SystemAuditLog from "../_components/report-analytics/SystemAuditLog";
 export default function ReportAnalyticsPage() {
   return (
     <div className=" space-y-8">
-      <div className=" flex justify-between items-center">
+      <div className=" flex flex-col md:flex-row gap-4 justify-between items-center">
         <DashboardTitle
           title="Advanced Analytics"
           desc="Comprehensive pricing analysis, policy enforcement
