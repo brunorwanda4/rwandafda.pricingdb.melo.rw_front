@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/item";
 import DashboardTitle from "../_components/common/dashboard-title";
 import MarkupApproval from "../_components/mark-up-approval/MarkupApproval";
+import MarkupApprovalHistory from "../_components/mark-up-approval/MarkupApprovalHistory";
 
 export default function MarkupApprovalPage() {
   return (
@@ -29,6 +30,7 @@ export default function MarkupApprovalPage() {
         </Item>
       </div>
       <MarkupApproval />
+      <MarkupApprovalHistory />
     </div>
   );
 }

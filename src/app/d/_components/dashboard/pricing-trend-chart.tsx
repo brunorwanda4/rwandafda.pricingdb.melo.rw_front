@@ -48,7 +48,7 @@ const chartConfig = {
 
 export default function PricingTrendChart() {
   const priceRange = [18000, 40000, 80000, 200000, 400000, 1000000];
-  const timeRage = ["6 months", "1 year", "3 moth"];
+  const timeRage = ["3 moths", "6 months", "1 year"];
   return (
     <Card className="">
       <CardHeader className="flex justify-between items-start mb-8">
