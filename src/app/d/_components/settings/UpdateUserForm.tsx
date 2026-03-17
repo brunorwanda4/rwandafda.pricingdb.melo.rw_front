@@ -9,6 +9,8 @@ import { Badge } from "@/components/ui/badge";
 import { HiOutlineUpload, HiOutlineSave, HiOutlineX } from "react-icons/hi";
 import { cn } from "@/lib/utils";
 import { FiSave } from "react-icons/fi";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { BsCardChecklist } from "react-icons/bs";
 
 const UpdateUserForm = ({ initialData }: { initialData?: any }) => {
   // Form State populated with existing user data
@@ -28,9 +30,9 @@ const UpdateUserForm = ({ initialData }: { initialData?: any }) => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+    <Card>
       {/* Profile Header Section */}
-      <div className="p-8 border-b border-slate-100 bg-slate-50/30">
+      <CardHeader className=" border-b border-slate-100 bg-slate-50/30">
         <div className="flex items-center gap-6">
           <div className="relative group">
             <div className="w-24 h-24 rounded-full border-2 border-dashed border-slate-300 flex flex-col items-center justify-center bg-white transition-colors group-hover:border-blue-400">
@@ -62,120 +64,122 @@ const UpdateUserForm = ({ initialData }: { initialData?: any }) => {
             </div>
           </div>
         </div>
-      </div>
+      </CardHeader>
 
-      <form onSubmit={handleUpdate} className="p-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-          {/* Row 1 */}
-          <div className="space-y-2">
-            <Label
-              htmlFor="fullName"
-              className="text-sm font-bold text-slate-700"
-            >
-              Full Name
-            </Label>
-            <Input
-              id="fullName"
-              value={formData.fullName}
-              onChange={(e) =>
-                setFormData({ ...formData, fullName: e.target.value })
-              }
-              className="h-12 bg-white border-slate-200 focus:ring-2 focus:ring-blue-500/20 transition-all"
-            />
+      <CardContent>
+        <form onSubmit={handleUpdate} >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+            {/* Row 1 */}
+            <div className="space-y-2">
+              <Label
+                htmlFor="fullName"
+
+              >
+                Full Name
+              </Label>
+              <Input
+                id="fullName"
+                value={formData.fullName}
+                onChange={(e) =>
+                  setFormData({ ...formData, fullName: e.target.value })
+                }
+                className="h-12 bg-white border-slate-200 focus:ring-2 focus:ring-blue-500/20 transition-all"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label
+                htmlFor="employeeId"
+
+              >
+                Employee ID
+              </Label>
+              <Input
+                id="employeeId"
+                value={formData.employeeId}
+                onChange={(e) =>
+                  setFormData({ ...formData, employeeId: e.target.value })
+                }
+                className="h-12 bg-white border-slate-200 focus:ring-2 focus:ring-blue-500/20 transition-all"
+              />
+            </div>
+
+            {/* Row 2 */}
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-sm font-bold text-slate-700">
+                Official Email
+              </Label>
+              <Input
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+                className="h-12 bg-white border-slate-200 focus:ring-2 focus:ring-blue-500/20 transition-all"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="phone" className="text-sm font-bold text-slate-700">
+                Phone Number
+              </Label>
+              <Input
+                id="phone"
+                value={formData.phoneNumber}
+                onChange={(e) =>
+                  setFormData({ ...formData, phoneNumber: e.target.value })
+                }
+                className="h-12 bg-white border-slate-200 focus:ring-2 focus:ring-blue-500/20 transition-all"
+              />
+            </div>
+
+            {/* Row 3 */}
+            <div className="space-y-2">
+              <Label
+                htmlFor="department"
+
+              >
+                Department
+              </Label>
+              <Input
+                id="department"
+                value={formData.department}
+                onChange={(e) =>
+                  setFormData({ ...formData, department: e.target.value })
+                }
+                className="h-12 bg-white border-slate-200 focus:ring-2 focus:ring-blue-500/20 transition-all"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="role" className="text-sm font-bold text-slate-700">
+                Role
+              </Label>
+              <Input
+                id="role"
+                value={formData.role}
+                onChange={(e) =>
+                  setFormData({ ...formData, role: e.target.value })
+                }
+                className="h-12 bg-white border-slate-200 focus:ring-2 focus:ring-blue-500/20 transition-all"
+              />
+            </div>
           </div>
 
-          <div className="space-y-2">
-            <Label
-              htmlFor="employeeId"
-              className="text-sm font-bold text-slate-700"
-            >
-              Employee ID
-            </Label>
-            <Input
-              id="employeeId"
-              value={formData.employeeId}
-              onChange={(e) =>
-                setFormData({ ...formData, employeeId: e.target.value })
-              }
-              className="h-12 bg-white border-slate-200 focus:ring-2 focus:ring-blue-500/20 transition-all"
-            />
+          {/* Action Buttons */}
+          <div className="mt-10 flex justify-end items-center gap-3">
+            <Button type="button" variant="outline" size="lg">
+              Cancel
+            </Button>
+            <Button type="submit" size="lg">
+              <FiSave className="w-5 h-5" />
+              Save Changes
+            </Button>
           </div>
-
-          {/* Row 2 */}
-          <div className="space-y-2">
-            <Label htmlFor="email" className="text-sm font-bold text-slate-700">
-              Official Email
-            </Label>
-            <Input
-              id="email"
-              type="email"
-              value={formData.email}
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
-              className="h-12 bg-white border-slate-200 focus:ring-2 focus:ring-blue-500/20 transition-all"
-            />
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="phone" className="text-sm font-bold text-slate-700">
-              Phone Number
-            </Label>
-            <Input
-              id="phone"
-              value={formData.phoneNumber}
-              onChange={(e) =>
-                setFormData({ ...formData, phoneNumber: e.target.value })
-              }
-              className="h-12 bg-white border-slate-200 focus:ring-2 focus:ring-blue-500/20 transition-all"
-            />
-          </div>
-
-          {/* Row 3 */}
-          <div className="space-y-2">
-            <Label
-              htmlFor="department"
-              className="text-sm font-bold text-slate-700"
-            >
-              Department
-            </Label>
-            <Input
-              id="department"
-              value={formData.department}
-              onChange={(e) =>
-                setFormData({ ...formData, department: e.target.value })
-              }
-              className="h-12 bg-white border-slate-200 focus:ring-2 focus:ring-blue-500/20 transition-all"
-            />
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="role" className="text-sm font-bold text-slate-700">
-              Role
-            </Label>
-            <Input
-              id="role"
-              value={formData.role}
-              onChange={(e) =>
-                setFormData({ ...formData, role: e.target.value })
-              }
-              className="h-12 bg-white border-slate-200 focus:ring-2 focus:ring-blue-500/20 transition-all"
-            />
-          </div>
-        </div>
-
-        {/* Action Buttons */}
-        <div className="mt-10 flex justify-end items-center gap-3">
-          <Button type="button" variant="outline" size="lg">
-            Cancel
-          </Button>
-          <Button type="submit" size="lg">
-            <FiSave className="w-5 h-5" />
-            Save Changes
-          </Button>
-        </div>
-      </form>
-    </div>
+        </form>
+    </CardContent>
+    </Card>
   );
 };
 
