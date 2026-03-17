@@ -11,6 +11,8 @@ import { Separator } from "@/components/ui/separator";
 import { getLoggedInUser, logoutUser } from "@/helpers/get-login-user";
 import { useRouter } from "next/navigation";
 import { formatUserRole, getInitials } from "@/helpers/format-text";
+import Link from "next/link";
+import { FiSettings } from "react-icons/fi";
 
 const DashboardNavProfile = () => {
   const user = getLoggedInUser();
@@ -44,7 +46,13 @@ const DashboardNavProfile = () => {
             <span>{formatUserRole(user?.role)}</span>
           </div>
         </div>
-
+        <Button
+          variant={"ghost"}
+          onClick={() => router.push("/d/settings")}
+          className=" justify-start mt-4"
+        >
+          <FiSettings /> Setting
+        </Button>
         <Separator />
         <Button
           variant={"ghost"}
