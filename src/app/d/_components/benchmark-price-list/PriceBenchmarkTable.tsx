@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import type React from "react";
+import { useState, useMemo } from "react";
 import {
   Table,
   TableBody,
@@ -23,7 +24,6 @@ import { cn } from "@/lib/utils";
 import { Card, CardContent } from "@/components/ui/card";
 import { useSidebar } from "@/components/ui/sidebar";
 
-// Combined mock data from your various screenshots
 const MOCK_DATA = [
   {
     id: "2141",
@@ -51,6 +51,7 @@ const MOCK_DATA = [
 
 export default function PriceBenchmarkTable() {
   const [search, setSearch] = useState("");
+  const { open } = useSidebar();
 
   const filteredData = useMemo(() => {
     return MOCK_DATA.filter((item) =>
@@ -58,73 +59,82 @@ export default function PriceBenchmarkTable() {
     );
   }, [search]);
 
-  const { open } = useSidebar();
-
   return (
-    <Card className="w-full overflow-hidden">
-      {/* 1. BLUE HEADER SECTION */}
-
-      <CardContent className="">
-        {/* 2. SEARCH & CONTROLS */}
-        <div className="flex items-center justify-between gap-4 mb-6">
-          <div className="relative flex-1 max-w-lg">
+    // KEY FIX 1: Use w-full with min-w-0 to prevent the card from overflowing its parent.
+    // The parent layout (sidebar + main) controls the available width — this card just fills it.
+    <Card className="w-full min-w-0 overflow-hidden">
+      <CardContent className="p-4 lg:p-6">
+        {/* SEARCH & CONTROLS */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-6">
+          <div className="relative flex-1 min-w-0 max-w-lg">
             <HiOutlineSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
             <Input
               placeholder="Search by product name..."
-              className="pl-10 h-12 bg-white border-slate-200 focus:ring-[#1044A5]"
+              className="pl-10 h-11 bg-white border-slate-200 focus:ring-[#1044A5] w-full"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
-          <div className="flex items-center gap-2">
-            <Button variant="outline" className="h-12 gap-2 font-bold">
+          <div className="flex items-center gap-2 shrink-0">
+            <Button variant="outline" className="h-11 gap-2 font-bold">
               <HiOutlineFilter /> Filter
             </Button>
-            <Button variant="outline" size="icon" className="h-12 w-12">
+            <Button variant="outline" size="icon" className="h-11 w-11">
               <HiOutlineShare />
             </Button>
           </div>
         </div>
 
-        {/* 3. THE RESPONSIVE TABLE ENGINE */}
-        {/*Can you help me to make condition which make 100vw - sidebar width */}
+        {/* KEY FIX 2: The table wrapper.
+            - On mobile/md: overflow-x-auto with no fixed width — scroll horizontally as needed.
+            - On lg+: use CSS var to set exact width based on sidebar state.
+            - `max-w-full` ensures it never exceeds the card width on any screen.
+        */}
         <div
-          className="relative overflow-x-auto lg:[width:var(--w)]"
-          style={{
-            "--w": open
-              ? "calc(100vw - 22rem - 48px)"
-              : "calc(100vw - 10rem - 48px)",
-          }}
+          className={cn(
+            "relative overflow-x-auto max-w-full",
+            // Only apply the calculated width on large screens
+            "lg:[width:var(--table-w)]",
+          )}
+          style={
+            {
+              "--table-w": open
+                ? "calc(100vw - 22rem - 48px)" // sidebar open (~16rem) + padding
+                : "calc(100vw - 6rem - 48px)", // sidebar collapsed (icon ~4rem) + padding
+            } as React.CSSProperties
+          }
         >
-          <Table className="w-full border-collapse table-fixed md:table-auto">
+          {/* KEY FIX 3: Remove table-fixed on mobile which causes cramping.
+              Use table-auto always so columns size to their content. */}
+          <Table className="w-full border-collapse table-auto">
             <TableHeader className="bg-slate-50/50">
               <TableRow className="border-slate-100">
-                {/* STICKY COLUMN 1: PRODUCT IDENTITY */}
-                <TableHead className="sticky left-0 z-30 bg-slate-50 font-bold text-slate-900 py-4 min-w-[220px] border-r shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]">
+                {/* STICKY LEFT: Product name */}
+                <TableHead className="sticky left-0 z-30 bg-slate-50 font-bold text-slate-900 py-4 min-w-[200px] lg:min-w-[240px] border-r shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]">
                   Product name
                 </TableHead>
 
-                <TableHead className="font-bold whitespace-nowrap">
+                <TableHead className="font-bold whitespace-nowrap min-w-[130px]">
                   Landing cost
                 </TableHead>
-                <TableHead className="font-bold text-center">
+                <TableHead className="font-bold text-center whitespace-nowrap min-w-[130px]">
                   Mark-up Scheme
                 </TableHead>
-                <TableHead className="font-bold text-center">
+                <TableHead className="font-bold text-center whitespace-nowrap min-w-[150px]">
                   Public Wholesaler
                 </TableHead>
-                <TableHead className="font-bold text-center">
+                <TableHead className="font-bold text-center whitespace-nowrap min-w-[150px]">
                   Private Wholesaler
                 </TableHead>
-                <TableHead className="font-bold text-center">
+                <TableHead className="font-bold text-center whitespace-nowrap min-w-[130px]">
                   Public Retailer
                 </TableHead>
-                <TableHead className="font-bold text-center">
+                <TableHead className="font-bold text-center whitespace-nowrap min-w-[130px]">
                   Private Retailer
                 </TableHead>
 
-                {/* STICKY COLUMN 2: ACTION */}
-                <TableHead className="sticky right-0 z-30 bg-slate-50 font-bold text-[#00897B] text-right border-l px-4">
+                {/* STICKY RIGHT: Action */}
+                <TableHead className="sticky right-0 z-30 bg-slate-50 font-bold text-[#00897B] text-right border-l px-4 min-w-[80px]">
                   Action
                 </TableHead>
               </TableRow>
@@ -136,24 +146,24 @@ export default function PriceBenchmarkTable() {
                   key={item.id}
                   className="border-slate-100 hover:bg-slate-50/50 group"
                 >
-                  {/* STICKY PRODUCT NAME */}
+                  {/* STICKY LEFT: Product name cell */}
                   <TableCell className="sticky left-0 z-10 bg-white group-hover:bg-slate-50 font-bold text-slate-900 py-4 border-r shadow-[2px_0_5px_-2px_rgba(0,0,0,0.05)]">
                     <div className="flex flex-col">
-                      <span>{item.name}</span>
+                      <span className="text-sm">{item.name}</span>
                       <span className="text-[10px] font-medium text-slate-400 italic uppercase">
                         {item.category}
                       </span>
                     </div>
                   </TableCell>
 
-                  <TableCell className="text-slate-600 font-medium px-4">
+                  <TableCell className="text-slate-600 font-medium px-4 whitespace-nowrap">
                     {item.landingCost}
                   </TableCell>
 
                   <TableCell className="text-center px-4">
                     <span
                       className={cn(
-                        "px-3 py-1 rounded-lg font-bold text-xs",
+                        "px-3 py-1 rounded-lg font-bold text-xs whitespace-nowrap",
                         item.scheme === "Standard"
                           ? "bg-emerald-100 text-emerald-700"
                           : "bg-orange-100 text-orange-600",
@@ -183,9 +193,11 @@ export default function PriceBenchmarkTable() {
                     </TableCell>
                   ))}
 
-                  {/* STICKY ACTION BUTTON */}
+                  {/* STICKY RIGHT: Action cell */}
                   <TableCell className="sticky right-0 z-10 bg-white group-hover:bg-slate-50 text-right border-l px-4">
-                    <Button variant="ghost">View</Button>
+                    <Button variant="ghost" size="sm">
+                      View
+                    </Button>
                   </TableCell>
                 </TableRow>
               ))}
@@ -193,25 +205,25 @@ export default function PriceBenchmarkTable() {
           </Table>
         </div>
 
-        {/* 4. PAGINATION FOOTER */}
-        <div className="flex items-center justify-between mt-6">
+        {/* PAGINATION FOOTER */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mt-6">
           <p className="text-sm font-medium text-slate-500">
             Showing 1-4 of 40 items
           </p>
           <div className="flex items-center gap-2">
-            <Button variant="outline" size="icon" className="w-10 h-10">
+            <Button variant="outline" size="icon" className="w-9 h-9">
               <HiOutlineChevronLeft />
             </Button>
-            <Button className="w-10 h-10 bg-blue-50 text-[#1044A5] hover:bg-blue-100 border-none font-bold">
+            <Button className="w-9 h-9 bg-blue-50 text-[#1044A5] hover:bg-blue-100 border-none font-bold">
               1
             </Button>
-            <Button variant="ghost" className="w-10 h-10">
+            <Button variant="ghost" className="w-9 h-9">
               2
             </Button>
-            <Button variant="outline" size="icon" className="w-10 h-10">
+            <Button variant="outline" size="icon" className="w-9 h-9">
               <HiOutlineChevronRight />
             </Button>
-            <Button variant="outline" size="icon" className="w-10 h-10">
+            <Button variant="outline" size="icon" className="w-9 h-9">
               <HiOutlineChevronDoubleRight />
             </Button>
           </div>
