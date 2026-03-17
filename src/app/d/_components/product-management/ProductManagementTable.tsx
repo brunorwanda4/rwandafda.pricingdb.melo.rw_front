@@ -26,6 +26,12 @@ import {
   HiOutlineChevronDoubleRight,
 } from "react-icons/hi";
 import { cn } from "@/lib/utils";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 
 // Mock data based on your specific "Product Management" screenshots
 const INITIAL_PRODUCTS = [
@@ -76,9 +82,9 @@ const ProductManagementTable = () => {
   }, [searchTerm, statusFilter]);
 
   return (
-    <div className="w-full space-y-6 bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+    <Card>
       {/* Search and Filters Header */}
-      <div className="flex items-center justify-between gap-4">
+      <CardHeader className="flex items-center justify-between gap-4">
         <div className="relative flex-1 max-w-xl">
           <HiOutlineSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
           <Input
@@ -147,10 +153,10 @@ const ProductManagementTable = () => {
             <HiOutlineDownload className="w-5 h-5 text-slate-400" /> Export
           </Button>
         </div>
-      </div>
+      </CardHeader>
 
       {/* Product Table */}
-      <div className="rounded-lg border border-slate-100 overflow-hidden">
+      <CardContent className="rounded-lg border border-slate-100 overflow-hidden">
         <Table>
           <TableHeader className="bg-white">
             <TableRow className="border-slate-100 hover:bg-transparent">
@@ -203,7 +209,7 @@ const ProductManagementTable = () => {
                   </span>
                 </TableCell>
                 <TableCell className="text-right">
-                  <button className="text-[#00897B] font-bold hover:underline transition-all">
+                  <button type="button" className="link link-primary">
                     View
                   </button>
                 </TableCell>
@@ -211,10 +217,10 @@ const ProductManagementTable = () => {
             ))}
           </TableBody>
         </Table>
-      </div>
+      </CardContent>
 
       {/* Pagination Footer */}
-      <div className="flex items-center justify-between pt-4">
+      <CardFooter className="flex items-center justify-between pt-4">
         <div className="text-sm font-medium text-slate-600">
           Showing <span className="font-bold">1-{filteredProducts.length}</span>{" "}
           of <span className="font-bold">40</span> items
@@ -257,8 +263,8 @@ const ProductManagementTable = () => {
             <HiOutlineChevronDoubleRight className="w-5 h-5" />
           </Button>
         </div>
-      </div>
-    </div>
+      </CardFooter>
+    </Card>
   );
 };
 
