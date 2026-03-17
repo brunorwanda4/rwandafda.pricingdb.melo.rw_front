@@ -163,20 +163,22 @@ export default function RegressiveMarkupTable() {
       </CardContent>
 
       {/* FOOTER ACTIONS */}
-      <CardFooter className="flex items-center justify-between">
-        <Button preset="create">Add Tier</Button>
+      <CardFooter className="w-full flex flex-col items-start justify-between">
+        <div className="flex items-center justify-between w-full ">
+          <Button preset="create">Add Tier</Button>
 
-        <div className="flex gap-3">
-          <Button preset="save">Save Changes</Button>
+          <div className="flex gap-3">
+            <Button preset="save">Save Changes</Button>
+          </div>
+        </div>
+        <div className="flex justify-end mt-4 w-full">
+          <Button preset="upload" size="lg">
+            Send To Approval
+          </Button>
         </div>
       </CardFooter>
 
       {/* FINAL SUBMIT BUTTON */}
-      <div className="flex justify-end mt-4">
-        <Button preset="upload" size="lg">
-          Send To Approval
-        </Button>
-      </div>
     </Card>
   );
 }
