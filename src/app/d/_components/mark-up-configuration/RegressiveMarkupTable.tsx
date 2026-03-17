@@ -19,7 +19,12 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { ButtonGroup } from "@/components/ui/button-group";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
 
 // Type definition for a mark-up tier
 type MarkupTier = {
@@ -67,7 +72,7 @@ export default function RegressiveMarkupTable() {
 
   return (
     <Card>
-      <div className="mb-4">
+      <CardHeader className="mb-6">
         <h2 className="text-lg font-bold text-slate-800">
           Regressive Mark-up rates( Maximum)
         </h2>
@@ -75,21 +80,21 @@ export default function RegressiveMarkupTable() {
           Adjust the regressive mark-up for{" "}
           <span className="font-bold text-slate-900">{activeTab}</span>.
         </p>
-      </div>
+        <ButtonGroup aria-label="Button group" className=" w-full ">
+          {sectors.map((sector) => (
+            <Button
+              key={sector}
+              onClick={() => setActiveTab(sector)}
+              variant={activeTab === sector ? "default" : "outline"}
+              className=""
+              size={"lg"}
+            >
+              {sector}
+            </Button>
+          ))}
+        </ButtonGroup>
+      </CardHeader>
 
-      <ButtonGroup aria-label="Button group" className=" w-full mb-6">
-        {sectors.map((sector) => (
-          <Button
-            key={sector}
-            onClick={() => setActiveTab(sector)}
-            variant={activeTab === sector ? "default" : "outline"}
-            className=""
-            size={"lg"}
-          >
-            {sector}
-          </Button>
-        ))}
-      </ButtonGroup>
       {/* DATA TABLE */}
       <CardContent>
         <Table>
