@@ -7,9 +7,9 @@ const DashboardLayout = (props: LayoutProps<"/d">) => {
   return (
     <SidebarProvider className="">
       <DashboardSidebar />
-      <main className="bg-base-200 w-full relative">
+      <main className="bg-base-200 w-full relative ">
         <DashboardNavbar />
-        <div className=" pt-20 pb-10 px-8">{props.children}</div>
+        <div className=" pt-20 pb-10 px-8 min-h-screen">{props.children}</div>
         <DashboardFooter />
       </main>
     </SidebarProvider>

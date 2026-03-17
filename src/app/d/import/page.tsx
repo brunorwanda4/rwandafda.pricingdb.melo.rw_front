@@ -1,14 +1,22 @@
+import { Button } from "@/components/ui/button";
+import DashboardTitle from "../_components/common/dashboard-title";
+import ProductLandingCostTable from "../_components/import/ProductLandingCostTable";
+import { MdShowChart } from "react-icons/md";
+
 export default function ImportPage() {
   return (
-    <div className="flex-1 space-y-4 p-8 pt-6">
-      <div className="flex items-center justify-between space-y-2">
-        <h2 className="text-3xl font-bold tracking-tight">Import</h2>
+    <div className="space-y-8">
+      <div className=" flex justify-between items-center">
+        <DashboardTitle
+          title="Product Landing Cost"
+          desc="The declared landing cost of imported pharmaceutical products"
+        />
+        <Button size="xl">
+          <MdShowChart className="size-6" />
+          <span>Sync IRIMS</span>
+        </Button>
       </div>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <p className="text-muted-foreground">
-          Welcome to the Import section. Here you can upload and process your pricing data files.
-        </p>
-      </div>
+      <ProductLandingCostTable />
     </div>
   );
 }
