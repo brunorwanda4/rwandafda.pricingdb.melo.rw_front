@@ -67,15 +67,6 @@ const SystemEvents = () => {
 
   return (
     <Card className="w-full relative overflow-hidden bg-white">
-      {/* Notebook Background Pattern */}
-      <div
-        className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage: `linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)`,
-          backgroundSize: "24px 24px",
-        }}
-      />
-
       <CardHeader className="flex flex-row items-center justify-between relative z-10">
         <CardTitle className="text-xl font-bold">
           Recent System Events
