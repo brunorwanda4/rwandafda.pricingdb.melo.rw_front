@@ -9,7 +9,9 @@ const DashboardLayout = (props: LayoutProps<"/d">) => {
       <DashboardSidebar />
       <main className="bg-base-200 w-full relative ">
         <DashboardNavbar />
-        <div className=" pt-20 pb-10 px-8 min-h-screen">{props.children}</div>
+        <div className=" pt-20 pb-10 md:px-8 px-4 min-h-screen">
+          {props.children}
+        </div>
         <DashboardFooter />
       </main>
     </SidebarProvider>

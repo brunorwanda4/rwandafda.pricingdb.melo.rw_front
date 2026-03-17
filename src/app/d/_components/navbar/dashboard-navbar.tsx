@@ -15,7 +15,7 @@ const DashboardNavbar = () => {
   return (
     <header
       className={cn(
-        " bg-base-100 fixed w-full h-16 pl-8 items-center md:pr-74 pr-4 flex justify-between py-4 border-b border-b-base-300 z-50",
+        " bg-base-100 fixed w-full h-16 md:pl-8 pl-4 items-center md:pr-74 pr-4 flex justify-between py-4 border-b border-b-base-300 z-50",
         !open && "md:pr-26",
       )}
     >
@@ -24,7 +24,7 @@ const DashboardNavbar = () => {
           <SidebarTrigger className=" cursor-pointer size-8" />
           <MobileLogo />
         </div>
-        <div className=" w-full flex justify-center md:justify-start">
+        <div className=" w-full flex justify-center md:justify-start max-sm:justify-end">
           <DashboardSearch />
         </div>
       </div>

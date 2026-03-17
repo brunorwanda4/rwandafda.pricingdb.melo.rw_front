@@ -25,7 +25,14 @@ export default AuthLogo;
 export const MobileLogo = () => {
   return (
     <div className="flex items-center flex-col ">
-      <Image priority src="/logo.svg" alt="Tega Logo" width={70} height={70} />
+      <Image
+        priority
+        src="/logo.svg"
+        alt="Tega Logo"
+        width={70}
+        height={70}
+        className=" min-h-12 min-w-12"
+      />
       <h1 className=" sr-only font-semibold text-primary ">Rwanda FDA</h1>
     </div>
   );

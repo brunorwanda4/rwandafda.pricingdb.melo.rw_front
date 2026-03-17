@@ -5,13 +5,14 @@ import { useEffect, useMemo, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import SearchBox from "@/components/common/form/search-box";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogFooter } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
   dashboardSearchItems,
   type dashboardSearchItemType,
 } from "./dashboard-search-items";
+import { cn } from "@/lib/utils";
 
 interface SearchHistoryItem {
   label: string;
@@ -53,7 +54,7 @@ const DashboardSearch = () => {
     try {
       const newItem: SearchHistoryItem = {
         label: page.label,
-        href: page.href,
+        href: page.href.replace(/^\/+/, "/"),  // ✅ strip duplicate leading slashes
         timestamp: Date.now(),
       };
       const filtered = searchHistory.filter((item) => item.href !== page.href);
@@ -121,17 +122,27 @@ const DashboardSearch = () => {
       {/* Trigger Input — click or focus opens the dialog */}
       <button
         type="button"
-        className="relative w-70  cursor-pointer"
+        className={cn(
+          "relative w-70  cursor-pointer ",
+          "max-sm:size-10  max-sm:hover:bg-base-300 max-sm:rounded-full max-sm:items-center max-sm:justify-center max-sm:block",
+        )}
         onClick={() => setIsOpen(true)}
       >
-        <FiSearch size={20} className="absolute left-2 top-3 text-neutral" />
-        <Input
-          className="pl-8 cursor-pointer"
-          placeholder="Search...."
-          readOnly
-          onFocus={() => setIsOpen(true)}
+        <FiSearch
+          size={20}
+          className="absolute left-2 top-3 text-neutral max-sm:block max-sm:top-2.5"
         />
-        <div className="absolute right-2 top-4 text-xs opacity-50">⌘ + K</div>
+        <div className=" sm:block hidden">
+          <Input
+            className="pl-8 cursor-pointer "
+            placeholder="Search...."
+            readOnly
+            onFocus={() => setIsOpen(true)}
+          />
+        </div>
+        <div className="absolute right-2 top-4 text-xs opacity-50 hidden sm:block">
+          ⌘ + K
+        </div>
       </button>
 
       {/* Search Dialog */}
@@ -167,11 +178,11 @@ const DashboardSearch = () => {
                         {searchHistory.map((item) => (
                           <Link
                             key={item.href}
-                            href={`/${item.href}`}
+                            href={item.href} // remove the `/${...}` wrapper
                             onClick={() =>
                               handleLinkClick({
                                 label: item.label,
-                                href: item.href,
+                                href: item.href, // remove the `/${...}` wrapper
                                 category: "",
                               })
                             }
