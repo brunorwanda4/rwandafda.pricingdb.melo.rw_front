@@ -7,6 +7,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { HiOutlineHome, HiOutlineUsers, HiOutlineKey } from "react-icons/hi2";
 import { FiBookOpen, FiSettings } from "react-icons/fi";
 import { LuSquareUser } from "react-icons/lu";
+import { BsCheckCircle } from "react-icons/bs";
 
 export type SidebarItem = {
   title: string;
@@ -38,7 +39,7 @@ export const DIVISION_MANAGER_dashboardSidebarContentGroups: sidebarGroupsProps[
         },
         {
           title: "Mark-up Approval",
-          icon: MdOutlineApproval,
+          icon: BsCheckCircle,
           url: "/d/mark-up-approval",
         },
         {

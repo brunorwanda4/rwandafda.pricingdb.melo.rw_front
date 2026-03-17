@@ -1,14 +1,34 @@
+import {
+  ItemDescription,
+  Item,
+  ItemContent,
+  ItemActions,
+  ItemTitle,
+} from "@/components/ui/item";
+import DashboardTitle from "../_components/common/dashboard-title";
+import MarkupApproval from "../_components/mark-up-approval/MarkupApproval";
+
 export default function MarkupApprovalPage() {
   return (
-    <div className="flex-1 space-y-4 p-8 pt-6">
-      <div className="flex items-center justify-between space-y-2">
-        <h2 className="text-3xl font-bold tracking-tight">Mark-up Approval</h2>
+    <div className=" space-y-8">
+      <div className=" flex justify-between items-center">
+        <DashboardTitle
+          title="Approvals"
+          desc="Review and approve pending requests"
+        />
+        <Item
+          variant={"outline"}
+          className="bg-warning/10 w-fit border-warning"
+        >
+          <ItemContent className=" text-warning justify-center items-center">
+            <ItemTitle className=" text-warning text-lg">
+              Pending Approvals
+            </ItemTitle>
+            <ItemActions className=" text-warning text-2xl">2</ItemActions>
+          </ItemContent>
+        </Item>
       </div>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <p className="text-muted-foreground">
-          Review and approve mark-up requests from this dashboard.
-        </p>
-      </div>
+      <MarkupApproval />
     </div>
   );
 }
