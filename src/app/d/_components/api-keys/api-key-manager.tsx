@@ -57,7 +57,7 @@ const ENV_STYLES: Record<Environment, string> = {
 const INITIAL_KEYS: ApiKey[] = [
   {
     id: 1,
-    name: "OpenAI GPT-4 Integration",
+    name: "Rwanda FDA Drug Registry API",
     env: "Production",
     status: "Active",
     key: "sk-proj-AbCdEfGhIjKlMnOpQrStUvWxYz1234567890AbCdEfGhIjKl",
@@ -68,7 +68,7 @@ const INITIAL_KEYS: ApiKey[] = [
   },
   {
     id: 2,
-    name: "Stripe Payments API",
+    name: "e-Submission Portal Integration",
     env: "Staging",
     status: "Active",
     key: "sk_test_4eC39HqLyjWDarjtT1zdp7dc0123456789abcdefghijklmnop",
@@ -79,7 +79,7 @@ const INITIAL_KEYS: ApiKey[] = [
   },
   {
     id: 3,
-    name: "Twilio SMS Gateway",
+    name: "SMS Pharmacovigilance Alerts",
     env: "Production",
     status: "Active",
     key: "SKa1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1",
@@ -90,7 +90,7 @@ const INITIAL_KEYS: ApiKey[] = [
   },
   {
     id: 4,
-    name: "AWS S3 Storage Access",
+    name: "Document & License Storage (S3)",
     env: "Production",
     status: "Active",
     key: "AKIAIOSFODNN7EXAMPLE1234567890abcdefghijklmnopqrst",
@@ -101,7 +101,7 @@ const INITIAL_KEYS: ApiKey[] = [
   },
   {
     id: 5,
-    name: "SendGrid Email Service",
+    name: "Inspection Report Notifications",
     env: "Staging",
     status: "Active",
     key: "SG.1234abcd-EFGHijklmnop.QRSTUVWXYZ0123456789-abcdefghijklmnopqrst",
@@ -112,7 +112,7 @@ const INITIAL_KEYS: ApiKey[] = [
   },
   {
     id: 6,
-    name: "Legacy CRM Connector",
+    name: "Legacy HMIS Connector",
     env: "Development",
     status: "Inactive",
     key: "crm_dev_pk_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJ",
