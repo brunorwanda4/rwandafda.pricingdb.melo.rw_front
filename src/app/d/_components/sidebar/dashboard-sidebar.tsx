@@ -42,7 +42,7 @@ export function DashboardSidebar() {
   return (
     <Sidebar
       collapsible="icon"
-      className={cn(" bg-base-100 px-4", { "px-0": !open })}
+      className={cn(" bg-base-100 px-4 z-40", { "px-0": !open })}
     >
       <SidebarHeader className=" bg-base-100 flex flex-row justify-between items-center pt-4">
         {open && (
