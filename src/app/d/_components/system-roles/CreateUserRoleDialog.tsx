@@ -56,17 +56,10 @@ const CreateUserRoleDialog = () => {
       </DialogTrigger>
       <DialogContent className="">
         <DialogHeader>
-          <div className="flex items-center gap-3 mb-2">
-            <div className="p-2 bg-blue-50 rounded-lg">
-              <HiOutlineShieldCheck className="w-6 h-6 text-blue-500" />
-            </div>
-            <div>
-              <DialogTitle className="text-xl">Create User Role</DialogTitle>
-              <DialogDescription>
-                Define a new administrative or staff role and set permissions.
-              </DialogDescription>
-            </div>
-          </div>
+          <DialogTitle className="text-xl">Create User Role</DialogTitle>
+          <DialogDescription>
+            Define a new administrative or staff role and set permissions.
+          </DialogDescription>
         </DialogHeader>
 
         <div className="grid gap-6 py-4">
@@ -74,11 +67,7 @@ const CreateUserRoleDialog = () => {
           <div className="grid gap-4">
             <div className="grid gap-2">
               <Label htmlFor="name">Role Name</Label>
-              <Input
-                id="name"
-                placeholder="e.g. Compliance Officer"
-
-              />
+              <Input id="name" placeholder="e.g. Compliance Officer" />
             </div>
             <div className="grid gap-2">
               <Label htmlFor="description">Description</Label>

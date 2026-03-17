@@ -1,4 +1,5 @@
 import DashboardTitle from "../_components/common/dashboard-title";
+import CreateUserDialog from "../_components/user-management/CreateUserDialog";
 import UserManagementTable from "../_components/user-management/UserManagementTable";
 import UserOverview from "../_components/user-management/UserOverview";
 
@@ -10,6 +11,7 @@ const UserManagement = () => {
           title="User Management"
           desc="Manage system users and access control"
         />
+        <CreateUserDialog />
       </div>
       <UserOverview />
       <UserManagementTable />
