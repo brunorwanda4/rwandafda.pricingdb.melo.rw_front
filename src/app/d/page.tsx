@@ -7,9 +7,11 @@ import RecentActivity from "./_components/dashboard/recent-activity";
 import { getLoggedInUser } from "@/helpers/get-login-user";
 import DataOverview from "./_components/dashboard/data-overview";
 import SystemResources from "./_components/dashboard/system-resources";
+import { SystemActivityChart } from "./_components/dashboard/system-activity-chart";
 
 const DashboardPage = () => {
   const user = getLoggedInUser();
+
   if (!user) {
     return redirect("/");
   }
@@ -23,8 +25,9 @@ const DashboardPage = () => {
             title="System Administration Dashboard"
           />
           <DataOverview />
-          <div>
+          <div className=" flex gap-4">
             <SystemResources />
+            <SystemActivityChart />
           </div>
         </div>
       );

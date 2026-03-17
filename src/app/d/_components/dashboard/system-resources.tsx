@@ -62,7 +62,7 @@ const SystemResources = () => {
     <Card className="w-full max-w-md">
       <CardHeader>
         <div className="flex items-center justify-between">
-          <CardTitle className="text-lg font-bold">System Resources</CardTitle>
+          <CardTitle>System Resources</CardTitle>
           <BsServer className="w-6 h-6" />
         </div>
         <CardDescription>Infrastructure utilization</CardDescription>
