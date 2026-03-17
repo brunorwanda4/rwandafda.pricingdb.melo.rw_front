@@ -26,7 +26,7 @@ const DashboardPage = () => {
             title="System Administration Dashboard"
           />
           <DataOverview />
-          <div className=" flex gap-4">
+          <div className=" flex gap-4 flex-col lg:flex-row">
             <SystemResources />
             <SystemActivityChart />
           </div>

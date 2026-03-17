@@ -43,7 +43,7 @@ const chartData = [
 export function SystemActivityChart() {
   return (
     /* added relative and overflow-hidden for the background pattern */
-    <Card className="w-full relative overflow-hidden bg-white">
+    <Card className="w-full relative overflow-hidden">
       {/* 1. Notebook Line Background Pattern */}
       <div
         className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none"

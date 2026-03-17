@@ -42,8 +42,8 @@ export default function MarkupConfiguration() {
   return (
     <div className=" space-y-8">
       {/* 1. TOP BAR: REASON SELECTION */}
-      <div className="flex flex-row items-center justify-end gap-4">
-        <div className="flex items-center gap-3">
+      <div className="flex flex-row items-center justify-start sm:justify-end gap-4">
+        <div className="flex flex-col sm:flex-row items-center gap-3">
           <label className="text-sm font-bold text-slate-700 whitespace-nowrap">
             Reason for Update:
           </label>

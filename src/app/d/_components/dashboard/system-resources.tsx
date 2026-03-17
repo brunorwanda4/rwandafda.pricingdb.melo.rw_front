@@ -59,7 +59,7 @@ const SystemResources = () => {
   ];
 
   return (
-    <Card className="w-full max-w-md">
+    <Card className="w-full lg:max-w-md">
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle>System Resources</CardTitle>
