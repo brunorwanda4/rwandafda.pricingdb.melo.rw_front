@@ -6,6 +6,7 @@ import PricingTrendChart from "./_components/dashboard/pricing-trend-chart";
 import RecentActivity from "./_components/dashboard/recent-activity";
 import { getLoggedInUser } from "@/helpers/get-login-user";
 import DataOverview from "./_components/dashboard/data-overview";
+import SystemResources from "./_components/dashboard/system-resources";
 
 const DashboardPage = () => {
   const user = getLoggedInUser();
@@ -22,7 +23,9 @@ const DashboardPage = () => {
             title="System Administration Dashboard"
           />
           <DataOverview />
-          <div></div>
+          <div>
+            <SystemResources />
+          </div>
         </div>
       );
     case "DIVISION_MANAGER":
