@@ -42,7 +42,7 @@ export default function MarkupConfiguration() {
   return (
     <div className=" space-y-8">
       {/* 1. TOP BAR: REASON SELECTION */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-end gap-4">
+      <div className="flex flex-row items-center justify-end gap-4">
         <div className="flex items-center gap-3">
           <label className="text-sm font-bold text-slate-700 whitespace-nowrap">
             Reason for Update:
@@ -65,7 +65,7 @@ export default function MarkupConfiguration() {
       {/* 2. MAIN CONFIGURATION CARD */}
       <Card>
         {/* Header with Threshold */}
-        <CardHeader className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <CardHeader className="flex flex-row items-center justify-between gap-4">
           <h2 className="text-xl font-bold">General Mark-up (Maximum)</h2>
 
           <div className="flex items-center gap-3">
@@ -86,7 +86,7 @@ export default function MarkupConfiguration() {
         </CardHeader>
 
         {/* PRICING GRID */}
-        <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-y-8 items-end">
+        <CardContent className="grid grid-cols-3 gap-y-8 items-end">
           {/* Labels Column */}
           <div className="space-y-10 pb-3">
             <p className="text-slate-500 font-medium italic">
