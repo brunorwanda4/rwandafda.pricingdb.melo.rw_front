@@ -42,6 +42,15 @@ const DashboardPage = () => {
           <RecentActivity />
         </div>
       );
+    case "PHARMACEUTIC_SUPPLY":
+      return (
+        <div className=" space-y-8">
+          <DashboardTitle title="Dashboard Overview" />
+          <DashboardOverviewData />
+          <PricingTrendChart />
+          <RecentActivity />
+        </div>
+      );
     default:
       break;
   }

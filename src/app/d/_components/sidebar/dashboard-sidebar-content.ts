@@ -6,8 +6,9 @@ import { TbReportAnalytics } from "react-icons/tb";
 import { IoSettingsOutline } from "react-icons/io5";
 import { HiOutlineHome, HiOutlineUsers, HiOutlineKey } from "react-icons/hi2";
 import { FiBookOpen, FiSettings } from "react-icons/fi";
-import { LuSquareUser } from "react-icons/lu";
+import { LuClipboardList, LuSquareUser } from "react-icons/lu";
 import { BsCheckCircle } from "react-icons/bs";
+import { BiPackage } from "react-icons/bi";
 
 export type SidebarItem = {
   title: string;
@@ -21,6 +22,39 @@ export type sidebarGroupsProps = {
   items: SidebarItem[];
   index?: number;
 };
+
+export const SUPER_ADMIN_dashboardSidebarContentGroups: sidebarGroupsProps[] = [
+  {
+    label: "Main",
+    items: [
+      {
+        title: "Dashboard",
+        icon: HiOutlineHome,
+        url: "/d",
+      },
+      {
+        title: "System roles",
+        icon: LuSquareUser,
+        url: "/d/system-roles",
+      },
+      {
+        title: "User Management",
+        icon: HiOutlineUsers,
+        url: "/d/user-management",
+      },
+      {
+        title: "API Keys",
+        icon: HiOutlineKey,
+        url: "/d/api-keys",
+      },
+      {
+        title: "Settings",
+        icon: FiSettings,
+        url: "/d/settings",
+      },
+    ],
+  },
+];
 
 export const DIVISION_MANAGER_dashboardSidebarContentGroups: sidebarGroupsProps[] =
   [
@@ -56,35 +90,36 @@ export const DIVISION_MANAGER_dashboardSidebarContentGroups: sidebarGroupsProps[
     },
   ];
 
-export const SUPER_ADMIN_dashboardSidebarContentGroups: sidebarGroupsProps[] = [
-  {
-    label: "Main",
-    items: [
-      {
-        title: "Dashboard",
-        icon: HiOutlineHome,
-        url: "/d",
-      },
-      {
-        title: "System roles",
-        icon: LuSquareUser,
-        url: "/d/system-roles",
-      },
-      {
-        title: "User Management",
-        icon: HiOutlineUsers,
-        url: "/d/user-management",
-      },
-      {
-        title: "API Keys",
-        icon: HiOutlineKey,
-        url: "/d/api-keys",
-      },
-      {
-        title: "Settings",
-        icon: FiSettings,
-        url: "/d/settings",
-      },
-    ],
-  },
-];
+export const PHARMACEUTIC_SUPPLY_dashboardSidebarContentGroups: sidebarGroupsProps[] =
+  [
+    {
+      label: "Dashboard",
+      items: [
+        {
+          title: "Dashboard",
+          icon: CiGrid42,
+          url: "/d",
+        },
+        {
+          title: "Product Management",
+          icon: BiPackage,
+          url: "/d/product-management",
+        },
+        {
+          title: "Import",
+          icon: HiOutlineDocumentArrowUp,
+          url: "/d/import",
+        },
+        {
+          title: "Benchmark Price List",
+          icon: LuClipboardList,
+          url: "/d/benchmark-price-list",
+        },
+        {
+          title: "Settings",
+          icon: IoSettingsOutline,
+          url: "/d/settings",
+        },
+      ],
+    },
+  ];
