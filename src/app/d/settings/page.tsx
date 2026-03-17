@@ -39,7 +39,6 @@ export default function SettingsPage() {
           <DashboardTitle
             title="Security settings"
             desc="Update your password and security preferences"
-
           />
           <UpdatePasswordForm />
           <ActiveSessionsForm />

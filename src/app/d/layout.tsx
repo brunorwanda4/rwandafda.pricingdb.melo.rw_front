@@ -1,14 +1,16 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import DashboardNavbar from "./_components/navbar/dashboard-navbar";
 import { DashboardSidebar } from "./_components/sidebar/dashboard-sidebar";
+import DashboardFooter from "./_components/footer/dashboard-footer";
 
 const DashboardLayout = (props: LayoutProps<"/d">) => {
   return (
-    <SidebarProvider>
+    <SidebarProvider className="">
       <DashboardSidebar />
       <main className="bg-base-200 w-full relative">
         <DashboardNavbar />
-        <div className=" py-20 px-8">{props.children}</div>
+        <div className=" pt-20 pb-10 px-8">{props.children}</div>
+        <DashboardFooter />
       </main>
     </SidebarProvider>
   );
