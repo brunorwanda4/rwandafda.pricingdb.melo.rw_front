@@ -1,4 +1,5 @@
 import DashboardTitle from "../_components/common/dashboard-title";
+import UserManagementTable from "../_components/user-management/UserManagementTable";
 import UserOverview from "../_components/user-management/UserOverview";
 
 const UserManagement = () => {
@@ -6,11 +7,12 @@ const UserManagement = () => {
     <div className=" space-y-8">
       <div className=" flex justify-between items-center">
         <DashboardTitle
-          desc="System Role Management"
-          title="Configure user roles and permissions levels"
+          title="User Management"
+          desc="Manage system users and access control"
         />
       </div>
       <UserOverview />
+      <UserManagementTable />
     </div>
   );
 };
