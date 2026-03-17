@@ -54,7 +54,7 @@ const ApiMetricsOverview = () => {
 
         return (
           <Card key={index} className="border shadow-none">
-            <CardContent className="p-4 flex items-center gap-4">
+            <CardContent className="flex items-center gap-4">
               {/* Dynamic Icon Container */}
               <div className={cn("p-3 rounded-xl shrink-0", config.bgColor)}>
                 <Icon className={cn("w-6 h-6", config.color)} />

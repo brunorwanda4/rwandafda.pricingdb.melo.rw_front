@@ -1,5 +1,18 @@
+import ApiMetricsOverview from "../_components/api-keys/api-metrics-overview";
+import DashboardTitle from "../_components/common/dashboard-title";
+
 const SystemRolesPage = () => {
-  return <div>SystemRolesPage</div>;
+  return (
+    <div className=" space-y-8">
+      <div className=" flex justify-between items-center">
+        <DashboardTitle
+          desc="System Role Management"
+          title="Configure user roles and permissions levels"
+        />
+      </div>
+      <ApiMetricsOverview />
+    </div>
+  );
 };
 
 export default SystemRolesPage;
