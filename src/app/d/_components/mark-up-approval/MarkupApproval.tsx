@@ -79,7 +79,7 @@ const MarkupApproval = () => {
             </div>
 
             {/* Metrics Grid */}
-            <div className="grid grid-cols-4 gap-3 mb-4">
+            <div className="grid lg:grid-cols-4 grid-cols-2 gap-3 mb-4">
               {[
                 { label: "Total Products", value: "1565" },
                 { label: "Updated Prices", value: "80" },
