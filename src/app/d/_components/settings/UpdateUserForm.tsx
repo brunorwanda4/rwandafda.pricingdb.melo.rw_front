@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import { HiOutlineUpload, HiOutlineSave, HiOutlineX } from "react-icons/hi";
 import { cn } from "@/lib/utils";
+import { FiSave } from "react-icons/fi";
 
 const UpdateUserForm = ({ initialData }: { initialData?: any }) => {
   // Form State populated with existing user data
@@ -169,7 +170,7 @@ const UpdateUserForm = ({ initialData }: { initialData?: any }) => {
             Cancel
           </Button>
           <Button type="submit" size="lg">
-            <HiOutlineSave className="w-5 h-5" />
+            <FiSave className="w-5 h-5" />
             Save Changes
           </Button>
         </div>

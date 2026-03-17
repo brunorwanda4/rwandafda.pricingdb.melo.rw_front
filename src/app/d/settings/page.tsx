@@ -4,6 +4,7 @@ import { ButtonGroup } from "@/components/ui/button-group";
 import { Button } from "@/components/ui/button";
 import { BsPerson, BsShield } from "react-icons/bs";
 import DashboardTitle from "../_components/common/dashboard-title";
+import UpdatePasswordForm from "../_components/settings/UpdatePasswordForm";
 
 export default function SettingsPage() {
   return (
@@ -27,13 +28,20 @@ export default function SettingsPage() {
         </TabsList>
         <TabsContent value="profile" className=" space-y-4">
           <DashboardTitle
-            desc="Profile information"
-            title="Update your personal information and contact details"
+            title="Profile information"
+            desc="Update your personal information and contact details"
             className="px-4"
           />
           <UpdateUserForm />
         </TabsContent>
-        <TabsContent value="security"></TabsContent>
+        <TabsContent value="security" className="space-y-4">
+          <DashboardTitle
+            title="Security settings"
+            desc="Update your password and security preferences"
+            className="px-4"
+          />
+          <UpdatePasswordForm />
+        </TabsContent>
       </Tabs>
     </div>
   );
