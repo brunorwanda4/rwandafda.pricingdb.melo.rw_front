@@ -1,5 +1,6 @@
 import ApiMetricsOverview from "../_components/api-keys/api-metrics-overview";
 import DashboardTitle from "../_components/common/dashboard-title";
+import UserRoleManager from "../_components/system-roles/UserRoleManager";
 
 const SystemRolesPage = () => {
   return (
@@ -11,6 +12,7 @@ const SystemRolesPage = () => {
         />
       </div>
       <ApiMetricsOverview />
+      <UserRoleManager />
     </div>
   );
 };
