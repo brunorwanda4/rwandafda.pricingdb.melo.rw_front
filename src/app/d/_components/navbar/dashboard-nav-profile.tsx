@@ -27,9 +27,11 @@ const DashboardNavProfile = () => {
             <AvatarImage src="/images/profile.jpg" />
             <AvatarFallback>{getInitials(user?.name)}</AvatarFallback>
           </Avatar>
-          <div className="flex flex-col gap-1 ">
-            <span className=" text-sm leading-4">{user?.name}</span>
-            <span className=" text-xs leading-2">
+          <div className="flex flex-col gap-1 max-lg:hidden ">
+            <span className=" text-sm leading-4 line-clamp-1">
+              {user?.name}
+            </span>
+            <span className=" text-xs leading-2 line-clamp-1">
               {formatUserRole(user?.role)}
             </span>
           </div>

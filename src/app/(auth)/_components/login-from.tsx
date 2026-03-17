@@ -53,7 +53,7 @@ const LoginForm = () => {
   return (
     <form
       id="login-form"
-      className=" w-full max-w-sm "
+      className=" w-full md:max-w-sm max-w-full"
       onSubmit={form.handleSubmit(onSubmit)}
     >
       <FieldGroup>
